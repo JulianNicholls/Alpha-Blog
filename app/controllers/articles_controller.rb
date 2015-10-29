@@ -37,6 +37,18 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def destroy
+    @article = Article.find params[:id]
+
+    if @article.destroy
+      flash[:notice] = 'Your article was removed successfully.'
+    else
+      flash[:warning] = 'Your article could not be removed.'
+    end
+
+    redirect_to articles_path
+  end
+
   private
 
   def article_params
