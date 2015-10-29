@@ -1,4 +1,23 @@
 body {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 14px;
+}
+
+div.notice {
+    padding: 10px;
+    background-color: #bfb;
+    color: black;
+}
+
+div.warning {
+    padding: 10px;
+    background-color: #fbb;
+    color: black;
+}
+
+ul {
+    list-style: none;
+}
+
+input, textarea {
+    font-size: 16px;
 }
