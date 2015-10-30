@@ -1,0 +1,6 @@
+AllCops:
+ Exclude:
+   - 'db/schema.rb'
+   - 'db/migrate/*.rb'
+   - 'bin/*'
+   - 'config/application.rb'

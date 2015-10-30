@@ -1,3 +1,4 @@
+# Controller for Article actions
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
@@ -11,10 +12,10 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new article_params
-    @article.user = User.first      # TODO - hardcoded for now
+    @article.user = User.first # TODO: hardcoded for now
 
     if @article.save
-      flash[:success] = "Your article was saved successully."
+      flash[:success] = 'Your article was saved successully.'
       redirect_to article_path(@article)
     else
       render :new
@@ -29,7 +30,7 @@ class ArticlesController < ApplicationController
 
   def update
     if @article.update article_params
-      flash[:success] = "Your article was updated successfully."
+      flash[:success] = 'Your article was updated successfully.'
       redirect_to article_path(@article)
     else
       render :edit

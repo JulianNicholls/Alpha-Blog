@@ -1,5 +1,5 @@
+# App Article
 class Article < ActiveRecord::Base
-
   belongs_to :user
 
   validates :title, length: { in: 3..50 }
