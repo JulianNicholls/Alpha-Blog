@@ -4,6 +4,8 @@ $navbar-inverse-bg: $base-color;
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+$separator-color: #eaeaea;
+
 #logo {
     float: left;
     font-size: 1.7em;
@@ -39,7 +41,7 @@ $navbar-inverse-bg: $base-color;
 footer {
     margin-top: 45px;
     padding-top: 5px;
-    border-top: 1px solid #eaeaea;
+    border-top: 1px solid $separator-color;
     color: #777;
 
     a:hover {
@@ -62,7 +64,7 @@ footer {
 }
 
 .article-actions {
-    border-top: 1px solid #eaeaea;
+    border-top: 1px solid $separator-color;
     padding-top: 7px;
 }
 
@@ -76,7 +78,7 @@ footer {
 }
 
 .article-body {
-    border-top: 1px solid #eaeaea;
+    border-top: 1px solid $separator-color;
     padding-top: 15px;
     padding-bottom: 15px;
 }

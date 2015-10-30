@@ -11,6 +11,7 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new article_params
+    @article.user = User.first      # TODO - hardcoded for now
 
     if @article.save
       flash[:success] = "Your article was saved successully."
