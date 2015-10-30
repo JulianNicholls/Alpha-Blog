@@ -2,5 +2,5 @@
   <h1>Edit Article <%= @article.id %></h1>
 </div>
 
-<%= render 'errors' %>
+<%= render 'shared/errors', object: @article %>
 <%= render 'form' %>
