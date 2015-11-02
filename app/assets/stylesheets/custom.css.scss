@@ -63,6 +63,11 @@ footer {
     }
 }
 
+.article-metadata {
+    border-top: 1px solid $separator-color;
+    margin-top: 15px;
+}
+
 .article-actions {
     border-top: 1px solid $separator-color;
     padding-top: 7px;
