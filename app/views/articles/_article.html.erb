@@ -8,7 +8,7 @@
         <%= truncate article.description, length: 100 %>
         <div class="article-metadata">
           <small>
-            Created by <%= article.user.username if article.user %>,
+            Created by <%= article.user.username %>,
             <%= time_ago_in_words(article.created_at) %> ago
             <% if article.created_at != article.updated_at %>
               , last updated <%= time_ago_in_words(article.updated_at) %> ago
