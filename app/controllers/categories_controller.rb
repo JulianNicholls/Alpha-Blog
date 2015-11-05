@@ -1,3 +1,4 @@
+# Controller for article categories
 class CategoriesController < ApplicationController
   before_action :require_admin, except: [:index, :show]
 
@@ -21,7 +22,6 @@ class CategoriesController < ApplicationController
   end
 
   def show
-
   end
 
   private
@@ -33,7 +33,7 @@ class CategoriesController < ApplicationController
   def require_admin
     return if logged_in? && current_user.admin?
 
-    flash[:danger] = "Only admins can perform that action."
+    flash[:danger] = 'Only admins can perform that action.'
     redirect_to categories_path
   end
 end

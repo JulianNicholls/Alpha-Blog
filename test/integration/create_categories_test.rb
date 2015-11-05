@@ -1,8 +1,10 @@
 require 'test_helper'
 
+# Integration test for the create new category process
 class CreateCategoriesTest < ActionDispatch::IntegrationTest
   def setup
-    @admin = User.create! username: 'admin', email: 'admin@example.com', password: 'foobar', admin: true
+    @admin = User.create! username: 'admin', email: 'admin@example.com',
+                          password: 'foobar', admin: true
   end
 
   test 'get new category form and create category' do

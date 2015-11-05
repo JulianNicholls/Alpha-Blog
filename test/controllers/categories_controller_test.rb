@@ -1,8 +1,10 @@
 require 'test_helper'
 
+# Test for the categories controller
 class CategoriesControllerTest < ActionController::TestCase
   def setup
-    @admin = User.create! username: 'admin', email: 'admin@example.com', password: 'foobar', admin: true
+    @admin = User.create! username: 'admin', email: 'admin@example.com',
+                          password: 'foobar', admin: true
 
     @category = Category.create name: 'sports'
   end
@@ -19,7 +21,7 @@ class CategoriesControllerTest < ActionController::TestCase
   end
 
   test 'should get show category' do
-    get :show, { id: @category.id }
+    get :show, id: @category.id
     assert_response :success
   end
 

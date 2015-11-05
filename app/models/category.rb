@@ -1,3 +1,4 @@
+# Article categories, each article can have many categories
 class Category < ActiveRecord::Base
   has_many :article_categories
   has_many :articles, through: :article_categories

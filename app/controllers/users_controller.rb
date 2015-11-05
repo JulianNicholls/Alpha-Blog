@@ -17,7 +17,7 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id
-      flash[:success] = "Welcome to the Alpha Blog #{@user.username}."
+      flash[:success] = "Welcome to the Alpha Blog, #{@user.username}."
       redirect_to @user
     else
       render :new
@@ -25,7 +25,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @articles = @user.articles.paginate(page: params[:page], per_page: 10)
+    @articles = @user.articles.paginate page: params[:page], per_page: 10
   end
 
   def edit
@@ -41,7 +41,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    flash[:danger] = "#{@user.username} and all of their articles have been removed successfully."
+    flash[:danger] = "#{@user.username} and their articles have been removed."
     @user.destroy
     redirect_to users_path
   end

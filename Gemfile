@@ -34,7 +34,7 @@ group :development, :test do
 end
 
 group :test do
-  gem 'minitest-reporters',   '1.0.17'
+  gem 'minitest-reporters', '1.0.17'
 end
 
 group :production do
@@ -47,4 +47,3 @@ end
 gem 'bootstrap-sass', '~> 3.3.5'
 gem 'will_paginate', '3.0.7'
 gem 'bootstrap-will_paginate', '0.0.10'
-
