@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class CreateCategoriesTest < ActionDispatch::IntegrationTest
-  test 'Get new category form and create category' do
+  test 'get new category form and create category' do
     get new_category_path
     assert_template 'categories/new'
 
@@ -13,7 +13,7 @@ class CreateCategoriesTest < ActionDispatch::IntegrationTest
     assert_match 'sports', response.body
   end
 
-  test 'Invalid category submission results in failure' do
+  test 'invalid category submission results in failure' do
     get new_category_path
     assert_template 'categories/new'
 

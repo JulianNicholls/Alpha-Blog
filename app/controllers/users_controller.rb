@@ -66,6 +66,6 @@ class UsersController < ApplicationController
   def require_admin
     return if logged_in? && current_user.admin?
 
-    flash[:danger] = 'Only admin users can perform that task.'
+    flash[:danger] = 'Only admin users can perform that action.'
   end
 end
