@@ -3,12 +3,12 @@ require 'test_helper'
 # Integration test for the category list
 class ListCategoriesTest < ActionDispatch::IntegrationTest
   def setup
-    admin = User.create! username: 'admin', email: 'admin@example.com',
-                         password: 'foobar', admin: true
+    @admin = User.create! username: 'admin', email: 'admin@example.com',
+                          password: 'foobar', admin: true
 
     @article = Article.create! title: 'Test Article with distinctive title',
                                description: 'Text with a noticeable word',
-                               user: admin
+                               user: @admin
 
     @cat_s = Category.create name: 'sports'
     @cat_p = Category.create name: 'programming'
@@ -39,14 +39,28 @@ class ListCategoriesTest < ActionDispatch::IntegrationTest
     assert_select 'ul.pagination', count: 2
   end
 
-  test 'get category to show and expect article above to appear' do
+  test 'get category to show, expect article above, no edit link' do
     get category_path(@cat_s)
 
     assert_template 'categories/show'
 
     assert_select 'a[href=?]', article_path(@article), text: @article.title
+    assert_select 'a[href=?]', edit_category_path(@cat_s), count: 0
 
     get category_path(@cat_p)
     assert_select 'a[href=?]', article_path(@article), text: @article.title
+    assert_select 'a[href=?]', edit_category_path(@cat_p), count: 0
+  end
+
+  test 'get category to show, expect edit link' do
+    login_as @admin
+    get category_path(@cat_s)
+
+    assert_template 'categories/show'
+
+    assert_select 'a[href=?]', edit_category_path(@cat_s)
+
+    get category_path(@cat_p)
+    assert_select 'a[href=?]', edit_category_path(@cat_p)
   end
 end
