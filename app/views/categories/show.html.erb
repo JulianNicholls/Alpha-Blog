@@ -1,12 +1,29 @@
 <div class="page-header">
-  <h1>Category: <%= @category.name %></h1>
+  <% if logged_in? && current_user.admin? %>
+    <div class="row">
+      <div class="col-md-4">
+        <h1>Category: <%= @category.name %></h1>
+      </div>
+      <div class="col-md-2 col-md-offset-3">
+        <%= link_to 'Edit category name',
+                    edit_category_path(@category),
+                    class: 'btn btn-primary btn-xs move-down' %>
+      </div>
+    </div>
+  <% else %>
+    <h1>Category: <%= @category.name %></h1>
+  <% end %>
 </div>
 
 <div class="text-center">
   <%= will_paginate @articles %>
 </div>
 
-<%= render @articles %>
+<% if @articles.any? %>
+  <%= render @articles %>
+<% else %>
+  <h4 class="text-center">No articles</h4>
+<% end %>
 
 <div class="text-center">
   <%= will_paginate @articles %>
