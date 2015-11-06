@@ -9,14 +9,21 @@
         <div class="article-metadata">
           <small>
             Created by <%= article.user.username %>,
-            <%= time_ago_in_words(article.created_at) %> ago,
             <% if article.created_at != article.updated_at %>
+              <%= time_ago_in_words(article.created_at) %> ago,
               last updated <%= time_ago_in_words(article.updated_at) %> ago
+            <% else %>
+              <%= time_ago_in_words(article.created_at) %> ago
             <% end %>
           </small>
         </div>
       </div>
-      <% if current_user?(article.user) || current_user.admin? %>
+
+      <% if article.categories.any? %>
+        <p>Categories: <%= render article.categories %></p>
+      <% end %>
+
+      <% if logged_in? && (current_user?(article.user) || current_user.admin?) %>
         <div class="article-actions">
           <%= link_to 'Edit this article', edit_article_path(article), class: 'btn btn-xs btn-primary' %>
           <%= link_to 'Delete this article', article, method: :delete,
